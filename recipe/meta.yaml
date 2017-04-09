@@ -16,7 +16,7 @@ build:
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
-  build:
+  host:
     - python
     - pip
   run:
@@ -52,3 +52,4 @@ extra:
   recipe-maintainers:
     - goanpeca
     - nehaljwani
+    - mingwandroid

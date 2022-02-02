@@ -1,17 +1,18 @@
-{% set version = "21.0.0" %}
+{% set name = "pyopenssl" %}
+{% set version = "22.0.0" %}
 
 package:
-  name: pyopenssl
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pyOpenSSL/pyOpenSSL-{{ version }}.tar.gz
-  sha256: 5e2d8c5e46d0d865ae933bef5230090bdaf5506281e9eec60fa250ee80600cb3
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyOpenSSL-{{ version }}.tar.gz
+  sha256: 660b1b1425aac4a1bea1d94168a85d99f0b3144c869dd4390d27629d0087f1bf
 
 build:
   noarch: python
-  number: 1
-  script: "{{ PYTHON }} -m pip install . -vvv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vvv
 
 requirements:
   host:
@@ -20,25 +21,25 @@ requirements:
     - setuptools
     - wheel
   run:
-    - python
-    - cryptography >=3.3
-    - six >=1.5.2
+    - python >=3.6
+    - cryptography >=35.0
 
 test:
-  requires:
-    - python <3.10
-    - pip
-  commands:
-    - pip check
   imports:
     - OpenSSL
     - OpenSSL.crypto
     - OpenSSL.rand
     - OpenSSL.SSL
+  requires:
+    - python <3.10
+    - pip
+  commands:
+    - pip check
+    - python -m OpenSSL.debug
 
 about:
   home: https://github.com/pyca/pyopenssl
-  license: Apache 2.0
+  license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
   summary: Python wrapper module around the OpenSSL library
@@ -50,7 +51,7 @@ about:
     -Extensive error-handling mechanism, mirroring OpenSSL's error codes
     and much more.
   doc_url: https://pyopenssl.readthedocs.org/en/stable/
-  doc_source_url: https://github.com/pyca/pyopenssl/blob/master/doc/index.rst
+  doc_source_url: https://github.com/pyca/pyopenssl/blob/{{ version }}/doc/index.rst
   dev_url: https://github.com/pyca/pyopenssl
 
 extra:

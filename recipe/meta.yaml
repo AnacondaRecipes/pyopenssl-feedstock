@@ -1,5 +1,5 @@
 {% set name = "pyopenssl" %}
-{% set version = "22.0.0" %}
+{% set version = "23.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyOpenSSL-{{ version }}.tar.gz
-  sha256: 660b1b1425aac4a1bea1d94168a85d99f0b3144c869dd4390d27629d0087f1bf
+  sha256: c1cc5f86bcacefc84dada7d31175cae1b1518d5f60d3d0bb595a67822a868a6f
 
 build:
-  noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . -vvv
+  skip: true  # [py<36]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps
 
 requirements:
   host:
@@ -21,8 +21,8 @@ requirements:
     - setuptools
     - wheel
   run:
-    - python >=3.6
-    - cryptography >=35.0
+    - python
+    - cryptography >=38.0.0,<40
 
 test:
   imports:
@@ -31,7 +31,6 @@ test:
     - OpenSSL.rand
     - OpenSSL.SSL
   requires:
-    - python <3.10
     - pip
   commands:
     - pip check
@@ -51,7 +50,6 @@ about:
     -Extensive error-handling mechanism, mirroring OpenSSL's error codes
     and much more.
   doc_url: https://pyopenssl.readthedocs.org/en/stable/
-  doc_source_url: https://github.com/pyca/pyopenssl/blob/{{ version }}/doc/index.rst
   dev_url: https://github.com/pyca/pyopenssl
 
 extra:

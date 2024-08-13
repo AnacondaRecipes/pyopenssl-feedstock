@@ -22,7 +22,7 @@ requirements:
     - wheel
   run:
     - python
-    - cryptography >=41.0.5,<43
+    - cryptography >=41.0.5,<44
 
 test:
   imports:

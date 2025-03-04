@@ -23,7 +23,7 @@ requirements:
   run:
     - python
     - cryptography >=41.0.5,<45
-    - typing_extensions >=4.9
+    - typing_extensions >=4.9  # [py<313]
 
 test:
   imports:

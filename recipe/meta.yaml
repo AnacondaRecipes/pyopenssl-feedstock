@@ -1,5 +1,5 @@
 {% set name = "pyopenssl" %}
-{% set version = "24.2.1" %}
+{% set version = "25.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pyOpenSSL/{{ name }}-{{ version }}.tar.gz
-  sha256: 4247f0dbe3748d560dcbb2ff3ea01af0f9a1a001ef5f7c4c647956ed8cbf0e95
+  sha256: cd2cef799efa3936bb08e8ccb9433a575722b9dd986023f1cabc4ae64e9dac16
 
 build:
   number: 0
@@ -22,7 +22,8 @@ requirements:
     - wheel
   run:
     - python
-    - cryptography >=41.0.5,<44
+    - cryptography >=41.0.5,<45
+    - typing_extensions >=4.9
 
 test:
   imports:

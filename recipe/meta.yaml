@@ -40,14 +40,14 @@ test:
     - google-auth 2.22.0  # passed
     - google-auth 2.29.0  # passed
     #- google-auth 2.38.0  # failed: FAILED tests/transport/test__mtls_helper.py::TestDecryptPrivateKey::test_success
-    - scrapy 2.12.0
-    - twisted 23.10.0
-    - snowflake-connector-python 3.13.2
-    - urllib3 1.26.19
-    - cherrypy 18.9.0
-    - conda 23.9.0
-    - docker-py 4.4.1
-    - eventlet 0.33.1
+    - scrapy 2.12.0  # passed
+    - twisted 23.10.0  # passed
+    - snowflake-connector-python 3.13.2  # passed
+    - urllib3 1.26.19  # passed
+    - cherrypy 18.9.0  # passed
+    - conda 23.9.0  # passed
+    - docker-py 4.4.1  # passed
+    #- eventlet 0.33.1 # AttributeError: module 'dns.rdtypes' has no attribute 'ANY'
 
 about:
   home: https://github.com/pyca/pyopenssl

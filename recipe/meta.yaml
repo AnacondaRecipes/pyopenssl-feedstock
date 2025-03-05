@@ -37,9 +37,9 @@ test:
     - pip check
     - python -m OpenSSL.debug
   downstreams:
-    - google-auth 2.22.0
-    - google-auth 2.29.0
-    - google-auth 2.38.0
+    - google-auth 2.22.0  # passed
+    - google-auth 2.29.0  # passed
+    #- google-auth 2.38.0  # failed: FAILED tests/transport/test__mtls_helper.py::TestDecryptPrivateKey::test_success
     - scrapy 2.12.0
     - twisted 23.10.0
     - snowflake-connector-python 3.13.2

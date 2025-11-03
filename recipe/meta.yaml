@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/pyOpenSSL/{{ name }}-{{ version }}.tar.gz
-  sha256: cd2cef799efa3936bb08e8ccb9433a575722b9dd986023f1cabc4ae64e9dac16
+  sha256: c981cb0a3fd84e8602d7afc209522773b94c1c2446a3c710a75b06fe1beae329
 
 build:
   number: 0

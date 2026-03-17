@@ -22,7 +22,7 @@ requirements:
     - wheel
   run:
     - python
-    - cryptography >=45.0.7,<47
+    - cryptography >=46.0.0,<47
     - typing_extensions >=4.9  # [py<313]
 
 test:

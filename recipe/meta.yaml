@@ -1,18 +1,18 @@
-{% set name = "pyopenssl" %}
-{% set version = "26.2.0" %}
+{% set name = "pyOpenSSL" %}
+{% set version = "26.3.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/p/pyOpenSSL/{{ name }}-{{ version }}.tar.gz
-  sha256: 8c6fcecd1183a7fc897548dfe388b0cdb7f37e018200d8409cf33959dbe35387
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 589de7fae1c9ea670d18422ed00fc04da787bbde8e1454aea872aa57b49ad341
 
 build:
   number: 0
-  skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  skip: true  # [py<39]
 
 requirements:
   host:
@@ -22,7 +22,7 @@ requirements:
     - wheel
   run:
     - python
-    - cryptography >=46.0.0,<49
+    - cryptography >=49.0.0,<50
     - typing_extensions >=4.9  # [py<313]
 
 test:
@@ -50,7 +50,7 @@ about:
     -Callbacks written in Python
     -Extensive error-handling mechanism, mirroring OpenSSL's error codes
     and much more.
-  doc_url: https://www.pyopenssl.org/en/latest/
+  doc_url: https://www.pyopenssl.org
   dev_url: https://github.com/pyca/pyopenssl
 
 extra:
